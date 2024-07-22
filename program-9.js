@@ -15,17 +15,41 @@ let frequentCount = function (arr) {
     }
   }
 
-  let mostFrequent;
+  let mostFrequent = [];
   let highestCount = 0;
+
   for (let item in counts) {
     if (counts[item] > highestCount) {
       highestCount = counts[item];
-      mostFrequent = item;
+      mostFrequent = [item];
+    } else if (counts[item] === highestCount) {
+      mostFrequent.push(item);
     }
   }
 
-  console.log(`${mostFrequent} ${highestCount} times`);
+  for (let item of mostFrequent) {
+    console.log(`${item} ${highestCount} times`);
+  }
 };
 
-let testarr = [3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3];
+let testarr = [
+  3,
+  "a",
+  "a",
+  "a",
+  2,
+  3,
+  "a",
+  3,
+  "a",
+  2,
+  4,
+  9,
+  3,
+  "a",
+  3,
+  3,
+  "a",
+  3,
+];
 frequentCount(testarr);
